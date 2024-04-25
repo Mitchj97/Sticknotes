@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        function onMouseUp(event) {
+        function onMouseUp() {
             isDragging = false;
             document.removeEventListener('mousemove', onMouseMove);
         }
@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.className = 'menu';
             menu.style.left = `${x}px`;
             menu.style.top = `${y}px`;
+            menu.style.display = 'block'; // Ensure menu is visible
             document.body.appendChild(menu);
 
             // Add menu items
@@ -71,9 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
             addMenuItem(menu, 'Tag: Less Important', () => note.style.border = '3px solid yellow');
             addMenuItem(menu, 'Delete Note', () => note.remove());
 
-            document.addEventListener('click', function onClickOutside() {
-                menu.remove();
-                document.removeEventListener('click', onClickOutside);
+            // Close menu on click outside
+            document.addEventListener('click', function onClickOutside(event) {
+                if (!menu.contains(event.target)) {
+                    menu.remove();
+                    document.removeEventListener('click', onClickOutside);
+                }
             });
         }
 
