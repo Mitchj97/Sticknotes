@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+#board {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+#addNote, #clearAll {
+    background-color: #b14a84; /* Magenta tone */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.note {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    background-color: #ffd1dc; /* Light magenta */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    cursor: move;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.menu {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+}
+
+.menu button {
+    background: none;
+    border: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background-color: #eee;
+}
